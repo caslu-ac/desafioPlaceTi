@@ -16,7 +16,14 @@ public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private Long codigoDenatran;
+
     private boolean ativo;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "marca")
+    @JsonIgnoreProperties("marca")
+    private List<Modelo> modelos;
 }
