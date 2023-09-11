@@ -12,6 +12,8 @@ import java.time.Year;
 @Entity
 @Builder
 @ToString
+@Getter
+@Setter
 public class Modelo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

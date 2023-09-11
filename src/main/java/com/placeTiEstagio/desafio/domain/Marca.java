@@ -12,6 +12,8 @@ import java.util.List;
 @Entity
 @Builder
 @ToString
+@Getter
+@Setter
 public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
