@@ -1,5 +1,6 @@
 package com.placeTiEstagio.desafio.requests;
 
+import com.placeTiEstagio.desafio.domain.Marca;
 import lombok.Data;
 
 import java.time.Year;
@@ -10,5 +11,5 @@ public class ModeloPutRequestBody {
     private String nome;
     private Year ano;
     private boolean ativo;
-    private String marca;
+    private Long id_marca;;
 }

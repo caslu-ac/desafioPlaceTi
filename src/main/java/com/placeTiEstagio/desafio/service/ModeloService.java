@@ -20,6 +20,8 @@ import java.util.List;
 public class ModeloService {
 
     private final ModeloRepositorio modeloRepositorio;
+    private final MarcaRepositorio marcaRepositorio;
+
 
     public List<Modelo> listAll() {
         return modeloRepositorio.findAll();
@@ -31,11 +33,14 @@ public class ModeloService {
     }
 
     public Modelo save(ModeloPostRequestBody modeloPostRequestBody) {
+        Marca marca = marcaRepositorio.findById(modeloPostRequestBody.getId_marca());
         return modeloRepositorio.save(
                 Modelo.builder()
                         .nome(modeloPostRequestBody.getNome())
                         .ano(modeloPostRequestBody.getAno())
                         .ativo(modeloPostRequestBody.isAtivo())
+                        .marca(marca)
+
                         .build());
     }
 
@@ -45,11 +50,14 @@ public class ModeloService {
 
     public void replace(ModeloPutRequestBody modeloPutRequestBody) {
         findByIdOrThrowBadRequestExeption(modeloPutRequestBody.getId());
+        Marca marca = marcaRepositorio.findById(modeloPutRequestBody.getMarcaId());
         Modelo modelo = Modelo.builder()
                 .id(modeloPutRequestBody.getId())
                 .nome(modeloPutRequestBody.getNome())
                 .ano(modeloPutRequestBody.getAno())
                 .ativo(modeloPutRequestBody.isAtivo())
+                .marca(marca)
+
                 .build();
         modeloRepositorio.save(modelo);
     }

@@ -9,5 +9,6 @@ public class ModeloPostRequestBody {
     private String nome;
     private Year ano;
     private boolean ativo;
-    private String marca;
+    private Long id_marca;;
+
 }
