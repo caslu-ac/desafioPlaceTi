@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "ca17d642-835f-4e98-851a-63cceb04e440",
+		"name": "Desafio Place TI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29628537"
+	},
+	"item": [
+		{
+			"name": "GetMarcas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/marcas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"marcas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetModelo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/modelo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modelo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostMarcas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"volvo\",\n    \"codigoDenatran\":\"6575\",\n    \"ativo\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/marcas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"marcas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostModelo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"nome\": \"tor\",\n    \"ano\": 2024,\n    \"ativo\": true,\n    \"marca\": 7\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/modelo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modelo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DelMarcas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/marcas/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"marcas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DelModelo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/modelo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modelo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutMarcas",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   { \"id\": 1,\n    \"nome\": \"fiat\",\n    \"codigoDenatran\": 2,\n    \"ativo\": true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/marcas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"marcas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutModelo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \"id\": 1,\n    \"nome\": \"toro\",\n    \"ano\": 2020,\n    \"ativo\": true,\n    \"marca\": \"fiat\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/modelo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modelo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
