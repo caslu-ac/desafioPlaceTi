@@ -8,12 +8,16 @@ import com.placeTiEstagio.desafio.requests.MarcaPostRequestBody;
 import com.placeTiEstagio.desafio.requests.MarcaPutRequestBody;
 import com.placeTiEstagio.desafio.requests.ModeloPostRequestBody;
 import com.placeTiEstagio.desafio.requests.ModeloPutRequestBody;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -33,14 +37,13 @@ public class ModeloService {
     }
 
     public Modelo save(ModeloPostRequestBody modeloPostRequestBody) {
-        Marca marca = marcaRepositorio.findById(modeloPostRequestBody.getId_marca());
+        Optional<Marca> marca = marcaRepositorio.findById(modeloPostRequestBody.getIdMarca());
         return modeloRepositorio.save(
                 Modelo.builder()
                         .nome(modeloPostRequestBody.getNome())
                         .ano(modeloPostRequestBody.getAno())
                         .ativo(modeloPostRequestBody.isAtivo())
-                        .marca(marca)
-
+                        .marca(marca.orElse(null))
                         .build());
     }
 
@@ -50,14 +53,13 @@ public class ModeloService {
 
     public void replace(ModeloPutRequestBody modeloPutRequestBody) {
         findByIdOrThrowBadRequestExeption(modeloPutRequestBody.getId());
-        Marca marca = marcaRepositorio.findById(modeloPutRequestBody.getMarcaId());
+        Optional<Marca> marca = marcaRepositorio.findById(modeloPutRequestBody.getMarca());
         Modelo modelo = Modelo.builder()
                 .id(modeloPutRequestBody.getId())
                 .nome(modeloPutRequestBody.getNome())
                 .ano(modeloPutRequestBody.getAno())
                 .ativo(modeloPutRequestBody.isAtivo())
-                .marca(marca)
-
+                .marca(marca.orElse(null))
                 .build();
         modeloRepositorio.save(modelo);
     }
