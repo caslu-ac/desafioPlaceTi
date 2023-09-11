@@ -43,7 +43,7 @@ public class MarcaService {
         findByIdOrThrowBadRequestExeption(marcaPutRequestBody.getId());
         Marca marca = Marca.builder()
                 .id(marcaPutRequestBody.getId())
-                .nome(marcaPutRequestBody.getName())
+                .nome(marcaPutRequestBody.getNome())
                 .codigoDenatran(marcaPutRequestBody.getCodigoDenatran())
                 .ativo(marcaPutRequestBody.isAtivo())
                 .build();
